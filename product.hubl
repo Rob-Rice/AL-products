@@ -1,0 +1,472 @@
+<!--
+templateType: page
+isAvailableForNewContent: true
+label: Test Collection 
+screenshotPath: ../../images/template-previews/career-01.jpeg
+-->
+
+{% extends "../layouts/base.html" %}
+{{ require_css(get_asset_url("../../css/products.css")) }}
+{{ require_js(get_asset_url("../../js/products.js")) }}
+
+
+
+{% block body %}
+
+<main class="body-container-wrapper">
+
+  {% dnd_area "dnd_area" class='body-container', label='Main section' %}
+
+  {% dnd_section 
+		  padding={
+				'top': 0,
+				'bottom': 0,
+				'left': 0,
+				'right': 0
+			},
+			full_width=true
+		%}
+  {% dnd_module 'sp_banner' 
+				path='../../modules/Hero Banner',
+				label="Hero Banner",
+				width=12,
+				variant='var_02'
+			%}
+  {% module_attribute 'settings' is_json=True %}
+  {
+  'background_setting':{
+  "parallax": false,
+  "overlay": true,
+  "overlay_color": {
+  "color":"#000000",
+  "opacity": 60
+  }
+  }
+  }
+  {% end_module_attribute %}
+  {% module_attribute 'content_02' is_json=True %}
+  {
+  "heading": "Profile"
+  }
+  {% end_module_attribute %}
+  {% end_dnd_module %}
+  {% end_dnd_section %}
+
+
+  {% dnd_section vertical_alignment='TOP' %}
+  {% dnd_module 'content_01' path='../../modules/Content', width=6 %}{% end_dnd_module %}
+  {% dnd_module 'content_01' path='../../modules/Content', width=6, offset=6 %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section vertical_alignment='TOP', max_width='1000', background_color={
+				r: 250,
+				b: 250,
+				g: 250,
+				a: 1
+			} %}
+  {% dnd_module 'career_01' path='../../modules/Career', width=12 %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section vertical_alignment='MIDDLE',
+	background_image={
+        'backgroundPosition': 'MIDDLE_CENTER',
+        'backgroundSize': 'cover',
+        'imageUrl': 'https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/images/atomic-img-02.jpg'
+      }
+			%}
+
+  {% dnd_column %}
+
+  {% dnd_row %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4 %}{% end_dnd_module %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4, offset=4 %}{% end_dnd_module %}
+  {% dnd_module 'feature_01' path='../../modules/Feature', variant='var_01', alignment='center', width=4, offset=8 %}{% end_dnd_module %}
+  {% end_dnd_row %}
+
+  {% dnd_row %}
+  {% dnd_module 'overlay_01' path='../../modules/Section Settings', width=12, overlay='true' %}{% end_dnd_module %}
+  {% end_dnd_row %} 
+
+  {% end_dnd_column %}
+
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+
+  <div class="product-listing-container">
+    <div class="products-listing-wrapper">
+      {% if dynamic_page_hubdb_row %}        
+      <div class="product-card">
+        <div class="product-t-l__wrapper">
+          <div class="product-title">
+            <h1>
+              {{dynamic_page_hubdb_row.name}}
+            </h1>  
+          </div>
+          <div class="contact-link">
+            <a href="/pages/contact-us" rel="nofollow" class="c-a__cta">
+              Contact Us For A Quote
+            </a>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="p-img">
+            <a href="#0">
+              <div class="p-main__img__container">
+                <img src="{{dynamic_page_hubdb_row.image_1.url}}" class="imgtest p-main__img super__main" style="display: block;"/>                 
+                {% if dynamic_page_hubdb_row.image_1.url %}
+                <img src="{{ dynamic_page_hubdb_row.image_1.url }}" class="imgtest"/>   
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_2.url %}
+                <img src="{{ dynamic_page_hubdb_row.image_2.url }}" class="imgtest"/>   
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_3.url %}
+                <img src="{{ dynamic_page_hubdb_row.image_3.url }}" class="imgtest"/>              
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_4.url %}
+                <img src="{{ dynamic_page_hubdb_row.image_4.url }}" class="imgtest"/>              
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_5.url %}
+                <img src="{{ dynamic_page_hubdb_row.image_5.url }}" class="imgtest"/>              
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_6.url %}
+                <img src="{{ dynamic_page_hubdb_row.image_6.url }}" class="imgtest"/>              
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_7.url %}
+                <a href="{{ dynamic_page_hubdb_row.image_7.url }}" target="_blank"> 
+                  <img src="{{ dynamic_page_hubdb_row.image_7.url }}" class="imgtest"/>              
+                </a>
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+                {% if dynamic_page_hubdb_row.image_8.url %}
+                <a href="{{ dynamic_page_hubdb_row.image_8.url }}" target="_blank"> 
+                  <img src="{{ dynamic_page_hubdb_row.image_8.url }}" />
+                </a>
+                {% else %}
+                <div>
+                </div>
+                {% endif %}
+              </div>
+            </a>
+
+            <div class="thumbnail-image">
+              {% if dynamic_page_hubdb_row.image_1.url %}
+              <img src="{{ dynamic_page_hubdb_row.image_1.url }}" class="tb__image item-img"/>   
+              {% else %}
+              <div class=""  style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_2.url %}
+              <img src="{{ dynamic_page_hubdb_row.image_2.url }}" class="tb__image item-img"/>   
+              {% else %}
+              <div class=""  style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_3.url %}
+              <img src="{{ dynamic_page_hubdb_row.image_3.url }}" class="tb__image item-img"/>              
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_4.url %}
+              <img src="{{ dynamic_page_hubdb_row.image_4.url }}" class="tb__image item-img"/>              
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_5.url %}
+              <img src="{{ dynamic_page_hubdb_row.image_5.url }}" class="tb__image item-img"/>              
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_6.url %}
+              <img src="{{ dynamic_page_hubdb_row.image_6.url }}" class="tb__image item-img"/>              
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_7.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_7.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_7.url }}" class="tb__image item-img"/>              
+              </a>
+              {% else %}
+              <div style="height: 100%;width: 100%;background-color: #fafafa;">
+              </div>
+              {% endif %}
+              {% if dynamic_page_hubdb_row.image_8.url %}
+              <a href="{{ dynamic_page_hubdb_row.image_8.url }}" target="_blank"> 
+                <img src="{{ dynamic_page_hubdb_row.image_8.url }}" />
+              </a>
+              {% else %}
+              <div>
+              </div>
+              {% endif %}
+            </div>
+
+
+            {% if dynamic_page_hubdb_row.image_4.url %}
+            <div class="arrow-container">
+              <div id="left" class="left-arrow arrow">
+                <img src="https://22724404.fs1.hubspotusercontent-na1.net/hubfs/22724404/Slice%201%20-%202023-04-18T153006%201.png" alt="left arrow" width="34" height="34" />
+              </div>
+              <div id="right" class="right-arrow arrow">
+                <img src="https://22724404.fs1.hubspotusercontent-na1.net/hubfs/22724404/Slice%201%20-%202023-04-18T153006.285.png" alt="right arrow" width="34" height="34"/>
+              </div>
+            </div>
+            {% else %}
+            <div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="p-three-d-link">
+            <div class="three-d-render">
+              {{ dynamic_page_hubdb_row.three_d }}
+            </div>
+            {% if dynamic_page_hubdb_row.three_d_file %}
+            <div class="three-d-download">
+              <a href="{{ dynamic_page_hubdb_row.three_d_file }}" download>
+                Download
+              </a>
+              <div class="p__desc">
+                <p style="padding-bottom: 1%;">
+                  <b style="color:#222;">Description:</b>
+                  {{ dynamic_page_hubdb_row.description }} 
+                </p>
+              </div>
+            </div>
+            {% else %}
+            <div class="three-d-download">
+              <a href="/pages/contact-us" class="three-d-download-link">
+                Click here to request a 3D model or files              
+              </a>
+              <div class="p__desc" style="text-align: left; padding: 5%;">
+                <p style="padding-bottom: 1%;">
+                  <b style="color:#222;">Description:</b>
+                  {{ dynamic_page_hubdb_row.description }} 
+                </p>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <div class="pop-up__image">
+          <span>&times;</span>
+          
+          <div class="img-grid" >
+            <div class="board-images" style="">
+
+            </div>
+
+      
+          </div>
+          <div class="p-u-arrow-container">
+            <div id="p-u-left" class="p-u-left-arrow p-u-arrow">
+              <img src="https://22724404.fs1.hubspotusercontent-na1.net/hubfs/22724404/Slice%201%20-%202023-04-18T153006%201.png" alt="left arrow" width="34" height="34" />
+            </div>
+            <div id="p-u-right" class="p-u-right-arrow p-u-arrow">
+              <img src="https://22724404.fs1.hubspotusercontent-na1.net/hubfs/22724404/Slice%201%20-%202023-04-18T153006.285.png" alt="right arrow" width="34" height="34"/>
+            </div>
+          </div>
+          <a href="#super__main">
+            begining
+          </a>
+        </div>
+
+        {% if dynamic_page_hubdb_row.p_working_load_n %} 
+        <div class="table-intro">
+          <h3>
+            Load Ratings:
+          </h3>
+        </div>
+
+        <div class="product-testing-data">
+          <table>
+            <tr>
+              <th>
+                <h3>
+                  Translational Load
+                </h3>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <b>Tensile Load - Working Load (N)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_working_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Tensile Load - Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_working_load_lbf }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Shear X - Working Load (N) </b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_shear_x_working_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Shear X - Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_shear_x_working_load_lbf }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Shear Y - Working Load (N)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_shear_y_working_load_n }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Shear Y - Working Load (lbf)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_shear_y_working_load_lbf }}          
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <th>
+                <h3>
+                  Torsion	
+                </h3>
+              </th>
+              <th>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <b>Torque	- Working Load (N*m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_working_load_nm }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Torque	- Working Load (in*lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_working_load_inlb }}          
+              </td>
+            </tr>
+          </table>
+          <!-- **************************************************** Bending Moment Table **************************************************** -->
+          <table>
+            <tr>
+              <th>
+                <h3>
+                  Bending Moment
+                </h3>
+              </th>
+              <th>
+
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <b>Bending X - Working Moment (N*m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_working_moment_nm }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Bending X - Working Moment (in*lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_working_moment_inlb }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Bending Y - Working Moment (N*m)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_bending_y_working_moment_nm }}          
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b>Bending Y - Working Moment (in*lb)</b>          
+              </td>
+              <td>
+                {{ dynamic_page_hubdb_row.p_bending_y_working_moment_inlb }}          
+              </td>
+            </tr>
+          </table>
+        </div>
+        {% else %}
+        <div>
+
+        </div>
+        {% endif %}
+      </div>
+      {% elif dynamic_page_hubdb_table_id %}
+      {% set queryparam = ""  %}
+      {% set queryparam = queryparam ~ "type=8 &orderBy=name" %}
+      <div style="width: 80%; padding-bottom: 3%;text-align: center;margin: 0 auto;">
+        <h1 class="collection-header">
+          Aluminum Extrusion Profiles
+        </h1>  
+        <p>
+          Our aluminum extrusion profiles are specifically engineered for maximum strength, performance, and precision. These unique tight-tolerance profiles work in conjunction with our patented AngleLock fastening system to provide a mechanically locked joint. Profiles are available in full lengths or cut to your specifications.
+        </p>
+      </div>
+      <div class="product-listing-cards">
+        {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id, queryparam) %} 
+        <article class="products-container">
+          <a href="{{ request.path }}/{{ row.hs_path }}#product" target="_blank">
+            <h2 class="p__title">
+              {{row.name}} 
+            </h2>
+            <img src="{{row.image_1.url}}"  class="p__img" style="height: 300px; width: 300px;" />
+          </a>
+        </article>
+        {% endfor %}
+      </div>
+
+      {% endif %}
+    </div>
+  </div>
+
+</main>
+
+{% endblock body %}
