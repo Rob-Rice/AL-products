@@ -45,16 +45,13 @@ popUpArrowIcons.forEach(icon => {
   })
 })
 
-
-console.log('aas')
-
 // Handles pop up
 mainImg.addEventListener("click", () => {
   document.querySelector('.pop-up__image').style.display = 'block'
+
   checkImg()
   closeBtn()
   setImage()
-  location.hash = "super__main"
   const images = document.querySelectorAll('.tb__image') 
   images.forEach((img) => {
   })
@@ -63,11 +60,11 @@ mainImg.addEventListener("click", () => {
 function closeBtn() {
   const x = document.querySelector('.pop-up__image span')
   x.addEventListener('click', () => {
-    varOne.forEach((item) => {
-      //       thumbnailImage.append(item)
+//     varOne.forEach((item) => {
 
-    })
-    const firstArrImg = document.querySelector('#super__main')
+//     })
+
+    const firstArrImg = document.querySelector('.super__main')
     const firstArrImgs = document.querySelectorAll('.hide')
 
     firstArrImgMain.append(firstArrImg)
@@ -76,20 +73,29 @@ function closeBtn() {
     })
   })
 }
-
+console.log('aff')
 function checkImg() {
   const images = document.querySelectorAll('.imgtest')
 
-  images.forEach((imgs) => {
+  images.forEach((imgs, i) => {
+    imgs.setAttribute('id', i) 
     const imgsSrc = imgs.src
     const arr = [imgs]
     thumbnailImg.append(imgs)
-    
+
+
+
+    //     varOne.forEach((item) => {
+    imgs.addEventListener('click', () => {
+      console.log(imgsSrc)
+      open(imgsSrc)
+    })
+    //     })
   })
 }
 
 function setImage() {
-  const mainImg = document.querySelector('#super__main')
+  const mainImg = document.querySelector('.super__main')
   const mainImgSrc = mainImg.src
   const images = document.querySelectorAll('.imgtest')
 
@@ -102,17 +108,4 @@ function setImage() {
   })
 }
 
-
-
-
-function nodeReset() {
-  varOne.forEach((nodeItem) => {
-
-    console.log(nodeItem)
-
-  })
-
-  console.log('<!-- -->')
-  console.log(varOne)
-}
 
